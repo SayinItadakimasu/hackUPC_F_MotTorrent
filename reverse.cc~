@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int n, rev, q;
+cin >> n;
+
+rev=0;
+
+while (n>0 and n%10==0) {
+
+cout << "0";
+n=n/10;
+}
+
+while (n!=0) {
+
+q=n%10;
+rev=rev*10+q;
+n=n/10;
+}
+
+cout << rev << endl;
+}
