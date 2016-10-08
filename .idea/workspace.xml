@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="false">
+    <generated />
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="false" GENERATION_PASS_SYSTEM_ENVIRONMENT="true">
+    <ADDITIONAL_GENERATION_ENVIRONMENT>
+      <envs />
+    </ADDITIONAL_GENERATION_ENVIRONMENT>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d81c15f2-e4ff-4ed6-995d-84dfc1e8ec34" name="Default" comment="Added Libtorrent, there is some shit deleted, clion crazy stuff.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/hackUPC_Fall_2016_MotTorrent.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dimon.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/operations.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/operations.h" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/ConvertUTF.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/GeoIP.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/Makefile.am" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/Makefile.in" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/add_torrent_params.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/address.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/alert.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/alert_dispatcher.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/alert_manager.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/alert_types.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/alloca.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/allocator.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/assert.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/aux_/session_impl.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/bandwidth_limit.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/bandwidth_manager.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/bandwidth_queue_entry.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/bandwidth_socket.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/bencode.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/bitfield.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/bloom_filter.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/broadcast_socket.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/bt_peer_connection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/buffer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/build_config.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/chained_buffer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/config.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/connection_queue.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/copy_ptr.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/create_torrent.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/deadline_timer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/debug.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/disk_buffer_holder.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/disk_buffer_pool.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/disk_io_thread.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/ed25519.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/entry.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/enum_net.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/error.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/error_code.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/escape_string.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/export.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/extensions.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/extensions/logger.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/extensions/lt_trackers.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/extensions/metadata_transfer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/extensions/smart_ban.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/extensions/ut_metadata.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/extensions/ut_pex.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/file.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/file_pool.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/file_storage.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/fingerprint.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/gzip.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/hasher.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/http_connection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/http_parser.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/http_seed_connection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/http_stream.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/http_tracker_connection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/i2p_stream.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/identify_client.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/instantiate_connection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/intrusive_ptr_base.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/invariant_check.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/io.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/io_service.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/io_service_fwd.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/ip_filter.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/ip_voter.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/dht_observer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/dht_tracker.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/find_data.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/get_item.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/get_peers.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/item.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/logging.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/msg.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/node.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/node_entry.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/node_id.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/observer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/refresh.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/routing_table.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/rpc_manager.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/kademlia/traversal_algorithm.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/lazy_entry.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/lsd.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/magnet_uri.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/max.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/natpmp.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/packet_buffer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/parse_url.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/pe_crypto.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/peer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/peer_connection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/peer_id.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/peer_info.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/peer_request.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/piece_block_progress.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/piece_picker.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/policy.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/proxy_base.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/ptime.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/puff.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/random.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/rss.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/session.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/session_settings.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/session_status.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/settings.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/sha1_hash.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/size_type.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/sliding_average.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/socket.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/socket_io.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/socket_type.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/socket_type_fwd.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/socks5_stream.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/ssl_stream.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/stat.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/storage.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/storage_defs.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/string_util.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/thread.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/time.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/timestamp_history.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/tommath.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/tommath_class.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/tommath_private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/tommath_superclass.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/torrent.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/torrent_handle.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/torrent_info.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/tracker_manager.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/udp_socket.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/udp_tracker_connection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/union_endpoint.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/upnp.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/utf8.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/utp_socket_manager.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/utp_stream.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/version.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/web_connection_base.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/web_peer_connection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtorrent/xml_parse.hpp" afterPath="" />
+    </list>
+    <ignored path="hackUPC_Fall_2016_MotTorrent.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="hackUPC_Fall_2016_MotTorrent" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="537">
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dimon.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dimon.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="operations.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/operations.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="operations.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/operations.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="882">
+              <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Llistoman &lt;josepll.plamarcell@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/operations.h" />
+        <option value="$PROJECT_DIR$/dimon.cpp" />
+        <option value="$PROJECT_DIR$/operations.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1301" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hackUPC_Fall_2016_MotTorrent" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hackUPC_Fall_2016_MotTorrent" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hackUPC_Fall_2016_MotTorrent" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hackUPC_Fall_2016_MotTorrent" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hackUPC_Fall_2016_MotTorrent" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hackUPC_Fall_2016_MotTorrent" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hackUPC_Fall_2016_MotTorrent" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d81c15f2-e4ff-4ed6-995d-84dfc1e8ec34" name="Default" comment="" />
+      <created>1475878870748</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1475878870748</updated>
+      <workItem from="1475878873834" duration="2525000" />
+      <workItem from="1475881956265" duration="1810000" />
+      <workItem from="1475894533351" duration="23289000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added Libtorrent, there's a lot of stuff we won't need probably.">
+      <created>1475881349583</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1475881349583</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="27624000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24596465" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29596412" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29596412" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24596465" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Libtorrent, there is some shit deleted, clion crazy stuff." />
+    <MESSAGE value="Added Libtorrent, there's a lot of stuff we won't need probably." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Libtorrent, there's a lot of stuff we won't need probably." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dimon.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
