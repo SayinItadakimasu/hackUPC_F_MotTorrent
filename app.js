@@ -91,7 +91,7 @@ router.route('/status')
       client.on('data', function(data) {
         console.log('Received: '+data);
         //Montar el json
-        res.json({Status: data});
+        res.json({"Status": ""+data});
         client.destroy();
       });
 
