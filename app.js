@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-
+var request = require('request');
 // view engine setup
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -47,12 +47,12 @@ router.route('/add/magnet')
     var net = require('net');
     var client = new net.Socket();
     client.connect(8492, 'localhost', function(){
-      client.write('ADD MAGNET\n'+magnet);
+      client.write('ADD MAGNET \n'+magnet);
     });
 
     client.on('data', function(data) {
-      //Tell the api that shit works
       console.log('Received: '+data);
+      res.json({Received: data});
       client.destroy();
     });
 
@@ -67,11 +67,11 @@ route.route('/remove/:torrent_id')
     var net = require('net');
     var client = new net.Socket();
     client.connect(8492, 'localhost', function(){
-      client.write('DELETE TORRENT\n'+id);
+      client.write('DELETE TORRENT \n'+id);
     });
     client.on('data', function(data) {
       console.log('Received: '+data);
-      //send that to the api
+      res.json({Received: data});
       client.destroy();
     });
 
@@ -90,7 +90,8 @@ route.route('/status/')
       });
       client.on('data', function(data) {
         console.log('Received: '+data);
-        //send that to the api
+        //Montar el json
+        res.json({Status: data});
         client.destroy();
       });
 
