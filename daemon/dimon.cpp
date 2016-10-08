@@ -33,15 +33,18 @@ int main()
             scanf("%s", url);
             add_torrent(url);
         }
-        else if (strcmp(str,g) == 0){
-            std::vector<stat> res = get_all_torrents();
-            for (int i = 0; i < res.size(); ++i) {
-                printf("Torrent ID: %u\n",res[i].torrent_id);
-                printf("Name: %s\n",res[i].name);
-                printf("Prog: %f \n",prog);
-                for (int j = 0; j < res[i].seeders.size(); ++j) {
-                    printf("Seed %d: %s \t",j,res[i].seeders[j]);
-                }
+        else if (strcmp(str,g) == 0)
+        {
+            std::vector<Stat> *res = get_all_torrents();
+            for (int i = 0; i < res->size(); ++i)
+            {
+                Stat &current_stat = (*res)[i];
+                printf("Torrent ID: %u\n", current_stat.torrent_id);
+                printf("Name: %s\n", current_stat.name);
+                printf("Prog: %f \n", current_stat.progress);
+                printf("Seed count: %d\n", current_stat.seeder_count);
+                printf("Upload speed: %d\n", current_stat.upload_speed);
+                printf("Download speed: %d\n", current_stat.download_speed);
                 printf("\n");
             }
 
