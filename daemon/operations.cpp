@@ -55,8 +55,8 @@ bool rm_torrent(boost::uint32_t id) {
 }
 
 std::vector<Stat>* get_all_torrents() {
-    std::vector<Stat> *res = new std::vector<Stat>;
     std::vector<libtorrent::torrent_handle> vec = s->get_torrents();
+    std::vector<Stat> *res = new std::vector<Stat>(vec.size());
     for (int i = 0; i < vec.size(); ++i) {
         Stat &current_stat = (*res)[i];
         libtorrent::torrent_handle &current_handle = vec[i];
