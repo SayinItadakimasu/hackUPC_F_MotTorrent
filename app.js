@@ -61,7 +61,7 @@ router.route('/add/magnet')
     });
   });
 
-route.route('/remove/:torrent_id')
+router.route('/remove/:torrent_id')
   .delete(function (req, res) {
     var id = req.params.torrent_id;
     var net = require('net');
@@ -80,7 +80,7 @@ route.route('/remove/:torrent_id')
     });
   });
 
-route.route('/status')
+router.route('/status')
     .get(function (req, res) {
       var net = require('net');
       var client = new net.Socket();
@@ -101,7 +101,7 @@ route.route('/status')
     });
 app.use('/api/v1', router);
 
-route.route('/testingproxy')
+router.route('/testingproxy')
     .get(function (req, res) {
       res.json({Status: 'Proxy properly working'});
     });
