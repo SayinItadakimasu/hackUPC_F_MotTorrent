@@ -46,10 +46,12 @@ router.route('/status')
     });
     client.on('data', function (data) {
       console.log('Received: ' + data);
+      res.send(data);
     });
 
     client.on('close', function () {
       console.log('status connection closed');
+
     });
   });
 
