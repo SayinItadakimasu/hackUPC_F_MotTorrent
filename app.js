@@ -80,7 +80,7 @@ route.route('/remove/:torrent_id')
     });
   });
 
-route.route('/status/')
+route.route('/status')
     .get(function (req, res) {
       var net = require('net');
       var client = new net.Socket();
@@ -101,5 +101,9 @@ route.route('/status/')
     });
 app.use('/api/v1', router);
 
+route.route('/testingproxy')
+    .get(function (req, res) {
+      res.json({Status: 'Proxy properly working'});
+    });
 app.listen(8080);
 console.log("localhost:8080");
