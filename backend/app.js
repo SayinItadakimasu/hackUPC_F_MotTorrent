@@ -48,7 +48,7 @@ router.route('/add/magnet')
     var net = require('net');
     var client = new net.Socket();
     client.connect(8492, 'localhost', function(){
-      client.end('ADD MAGNET \n'+JSON.stringify(req.body.magnet));
+      client.end('ADD MAGNET \n'+JSON.stringify(req.body));
     });
 
     client.on('data', function(data) {
