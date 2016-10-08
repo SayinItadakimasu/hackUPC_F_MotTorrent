@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WEB BOIS</title>
+
+    <style>
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        var value = $('valueId').val();
+        var app = angular.module('myApp', []);
+        app.controller('personCtrl',['$scope', '$http', function ($scope, $http) {
+            $scope.results = [];
+            $scope.magnet=value;
+            $scope.torrent_id=$('deleteIdTorrent').val();
+            $scope.rows=[{name:'File', perc:'%', id: 'ID'}];
+            $scope.addmagnet = function () {
+                $.post('/api/v1/add/magnet',
+                        { magnet:$scope.magnet  },
+                        function (response) { $scope.results = response;
+                            console.log("victory! ")},
+                        function (failure) { console.log("failed magnet:(", failure); });
+            }
+            setInterval(function () {
+                $http.get('/api/v1/status',{},function (response){
+                    $scope.rows=$scope.rows.concat(response);
+                },function (failure){
+                    $scope.rows.push({name:'could not access the server',id:'',perc:''});
+                });
+            },5000);
+            $scope.removeTorrentById = function () {
+                $.delete('/api/v1/remove/:torrent:id',
+                        { torrent_id:$scope.torrent_id  },
+                        function (response) { $scope.results = response;
+                            console.log("victory! ")},
+                        function (failure) { console.log("failed remove:(", failure); });
+            }
+        }] );
+
+    </script>
+</head>
+<body>
+<div ng-app="myApp"    ng-controller="personCtrl" >
+    <form ng-submit="addmagnet()">
+        <input type="text" id="ValueId" ng-model="magnet">
+        <input type="submit"  value="Add magnet" />
+    </form>
+    <br>
+
+
+    <table>
+        <tr ng-repeat="x in rows | orderBy : 'id'">
+            <td>{{x.id}}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.perc }}</td>
+        </tr>
+    </table>
+    <form ng-submit="removeTorrentById()">
+        <input type="text" id="deleteIdTorrent" ng-model="torrent_id">
+        <input type="submit"  value="Remove torrent" />
+    </form>
+    <br>
+</div>
+</body>
+</html>
