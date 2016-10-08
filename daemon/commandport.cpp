@@ -19,7 +19,11 @@ typedef struct {
 
 void* process_client_command(void *p)
 {
+    process_client_command_param ps = *(process_client_command_param*) p;
+    char *bufferBegin = ps.bufferBegin;
+    size_t bufferSize = ps.bufferSize;
 
+    write(1, bufferBegin, bufferSize);
 }
 
 typedef typeof(process_client_command) process_client_command_funcType;
