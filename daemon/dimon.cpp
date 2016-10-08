@@ -16,7 +16,10 @@ namespace lt = libtorrent;
 
 char g[]="get";
 char a[]="add";
-char r[]="remove";
+char p[]="pause";
+char pa[]="pall";
+char r[]="resume";
+char ra[]="rall";
 char q[]="quit";
 
 
@@ -33,11 +36,9 @@ int main()
             scanf("%s", url);
             add_torrent(url);
         }
-        else if (strcmp(str,g) == 0)
-        {
+        else if (strcmp(str,g) == 0) {
             std::vector<Stat> *res = get_all_torrents();
-            for (int i = 0; i < res->size(); ++i)
-            {
+            for (int i = 0; i < res->size(); ++i) {
                 Stat &current_stat = (*res)[i];
                 printf("Torrent ID: %u\n", current_stat.torrent_id);
                 printf("Name: %s\n", current_stat.name.c_str());
@@ -47,7 +48,24 @@ int main()
                 printf("Download speed: %d\n", current_stat.download_speed);
                 printf("\n");
             }
-
+        }
+        else if(strcmp(str,p) == 0) {
+            printf( "input id: \n");
+            boost::uint32_t id;
+            std::cin >> id;
+            pause_torrent(id);
+        }
+        else if(strcmp(str,pa) == 0) {
+            pause_all();
+        }
+        else if(strcmp(str,r) == 0) {
+            printf( "input id: \n");
+            boost::uint32_t id;
+            std::cin >> id;
+            resume_torrent(id);
+        }
+        else if(strcmp(str,ra) == 0) {
+            resume_all();
         }
         else {
             printf( "input id: \n");
