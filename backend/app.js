@@ -20,6 +20,8 @@ router.route('/add/magnet')   //add a torrent via magnet link
     client.connect(8492, 'localhost', function () {
       var data = 'ADD MAGNET\n' + JSON.stringify(req.body);
       var length = zpad(Buffer.byteLength(data, 'utf8'), 10);
+      console.log(length);
+      console.log(data);
 
       client.write(length);
       client.write(data);
@@ -34,12 +36,13 @@ router.route('/add/magnet')   //add a torrent via magnet link
       console.log('magnet connection closed');
     });
   });
+
 router.route('/status')
   .get(function (req, res) {
     var client = new net.Socket();
     client.connect(8492, 'localhost', function () {
       var data = "GET STATUS\n";
-      var length = zpad(Buffer.byteLength(data, 'utf8'),10);
+      var length = zpad(Buffer.byteLength(data, 'utf8'), 10);
 
       client.write(length);
       client.write(data);
