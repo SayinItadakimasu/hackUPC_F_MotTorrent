@@ -49,12 +49,13 @@ router.route('/status')
       client.write(data);
     });
     client.on('data', function (data) {
-      console.log(data);
+      console.log('Received: ' + data);
       res.send(data);
     });
 
     client.on('close', function () {
       console.log('status connection closed');
+
     });
   });
 
