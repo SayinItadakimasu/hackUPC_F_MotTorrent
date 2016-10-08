@@ -19,10 +19,10 @@ void command_handler(char *bufferStart, size_t bufferSize) //this function is re
 
 }
 
-void accept_connection(int socket)
+void accept_connection(int socket, command_handler_funcType command_handler)
 {
     int connection_fd = accept(socket, NULL, NULL); //we use NULL because we don't care who is connecting to us
-    boost::thread listener_thread(&accept_connection,socket); //after accepting and binding to a new connection, we launch a listener right away again
+    boost::thread listener_thread(&accept_connection, socket, command_handler); //after accepting and binding to a new connection, we launch a listener right away again
     listener_thread.detach();
 
     size_t recv_buffer_size = 1024;
@@ -58,7 +58,7 @@ void init_listener(command_handler_funcType command_handler) //this parameter is
     if (listen(listen_socket,max_waiting_connections) < 0)
         error("Listen failed/"); //start accepting connections on the socket
 
-    boost::thread listener_thread(&accept_connection,listen_socket, command_handler);
+    boost::thread listener_thread(&accept_connection, listen_socket, command_handler);
     listener_thread.detach();
 
 }
@@ -66,7 +66,7 @@ void init_listener(command_handler_funcType command_handler) //this parameter is
 
 int main(int argc, char *argv[])
 {
-    init_listener();
+    init_listener(NULL);
     while(1);
     return 0;
 }
