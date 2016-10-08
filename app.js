@@ -12,10 +12,9 @@ module.exports = app;
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/testingSocket', function(req, res) {
   res.json({message: 'welcome to the api'});
   var net = require('net');
-
   var client = new net.Socket();
   client.connect(8492, 'localhost', function(){
     console.log("conectado al socket");
@@ -32,7 +31,74 @@ router.get('/', function(req, res) {
   });
 });
 
-app.use('/api', router);
+
+router.route('/add/torrent')
+  //add a torrent via .torrent file
+  .post(function (req, res) {
+    res.json({message: 'Adding Torrent - STUB METHOD'});
+    var net = require('net');
+    var client = new net.Socket();
+  });
+
+router.route('/add/magnet')
+  //add a torrent via magnet link
+  .post(function (req, res) {
+    var magnet = req.body.magnet;
+    var net = require('net');
+    var client = new net.Socket();
+    client.connect(8492, 'localhost', function(){
+      client.write('ADD MAGNET\n'+magnet);
+    });
+
+    client.on('data', function(data) {
+      //Tell the api that shit works
+      console.log('Received: '+data);
+      client.destroy();
+    });
+
+    client.on('close', function() {
+      console.log('magnet connection closed');
+    });
+  });
+
+route.route('/remove/:torrent_id')
+  .delete(function (req, res) {
+    var id = req.params.torrent_id;
+    var net = require('net');
+    var client = new net.Socket();
+    client.connect(8492, 'localhost', function(){
+      client.write('DELETE TORRENT\n'+id);
+    });
+    client.on('data', function(data) {
+      console.log('Received: '+data);
+      //send that to the api
+      client.destroy();
+    });
+
+    client.on('close', function() {
+      console.log('delete connection closed');
+    });
+  });
+
+route.route('/status/')
+    .get(function (req, res) {
+      var net = require('net');
+      var client = new net.Socket();
+      client.connect(8492, 'localhost', function(){
+        console.log("conectado al socket");
+        client.write("GET STATUS\n");
+      });
+      client.on('data', function(data) {
+        console.log('Received: '+data);
+        //send that to the api
+        client.destroy();
+      });
+
+      client.on('close', function() {
+        console.log('status connection closed');
+      });
+    });
+app.use('/api/v1', router);
 
 app.listen(8080);
 console.log("localhost:8080");
