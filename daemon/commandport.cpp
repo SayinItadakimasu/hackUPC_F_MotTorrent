@@ -15,6 +15,7 @@ void error(const char *msg)
 typedef struct {
     char *bufferBegin; //this is the start of the buffer that holds the client's command
     size_t bufferSize;
+    int socket_fd; //this is the socket where we'll write the result of the opretaion
 } process_client_command_param;
 
 void* process_client_command(void *p)
@@ -22,8 +23,14 @@ void* process_client_command(void *p)
     process_client_command_param ps = *(process_client_command_param*) p;
     char *bufferBegin = ps.bufferBegin;
     size_t bufferSize = ps.bufferSize;
+    int socket_fd = ps.socket_fd;
 
     write(1, bufferBegin, bufferSize);
+
+    char message[] =  "This is the result of the operation";
+    write(socket_fd, message, sizeof(message));
+
+    close(socket_fd);
 }
 
 typedef typeof(process_client_command) process_client_command_funcType;
@@ -61,6 +68,7 @@ void* accept_connection(void *p)
     process_client_command_param pccp;
     pccp.bufferBegin = recv_buffer;
     pccp.bufferSize = total_bytes_read;
+    pccp.socket_fd = connection_fd;
     process_client_command(&pccp);
 
     free(recv_buffer);

@@ -12,49 +12,17 @@ module.exports = app;
 
 var router = express.Router();
 
-router.get('/testingSocket', function(req, res) {
-  res.json({message: 'welcome to the api'});
-  var net = require('net');
-  var client = new net.Socket();
-  client.connect(8492, 'localhost', function(){
-    console.log("conectado al socket");
-    client.end("Can I haz status");
-  });
-
-  client.on('data', function(data) {
-    console.log('Received: ' + data);
-    client.destroy(); // kill client after server's response
-  });
-
-  client.on('close', function() {
-    console.log('Connection closed')
-  });
-});
-
-
-router.route('/add/torrent')
-  //add a torrent via .torrent file
+router.route('/add/magnet')   //add a torrent via magnet link
   .post(function (req, res) {
-    res.json({"message": "Adding Torrent - STUB METHOD"});
-    var net = require('net');
-    var client = new net.Socket();
-  });
-
-router.route('/add/magnet')
-  //add a torrent via magnet link
-  .post(function (req, res) {
-    //var magnet = "magnet:?xt=urn:btih:13068ce029934ce8504d5137e5683c9c701ddf77&dn=Hawaii.Five-0.2010.S07E03.HDTV.x264-LOL%5Bettv%5D&&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce";
-    //var magnet = req.body.magnet;
     var net = require('net');
     var client = new net.Socket();
     client.connect(8492, 'localhost', function(){
-      client.end('ADD MAGNET \n'+JSON.stringify(req.body));
+      client.write('ADD MAGNET \n'+JSON.stringify(req.body));
     });
 
     client.on('data', function(data) {
       console.log('Received: '+data);
       res.json({"Received": ""+data});
-      client.destroy();
     });
 
     client.on('close', function() {
