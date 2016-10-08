@@ -54,16 +54,18 @@ bool rm_torrent(boost::uint32_t id) {
     }
 }
 
-std::vector<Stat> get_all_torrents() {
-    std::vector<Stat> res;
+std::vector<Stat>* get_all_torrents() {
+    std::vector<Stat> *res = new std::vector<Stat>;
     std::vector<libtorrent::torrent_handle> vec = s->get_torrents();
     for (int i = 0; i < vec.size(); ++i) {
-        res[i].name = vec[i].status().name;
-        res[i].torrent_id = vec[i].id();
-        res[i].progress = vec[i].status().progress;
-        std::copy(vec[i].url_seeds().begin(),vec[i].url_seeds().end(),std::back_inserter(res[i].seeders));
-        //printf("Torrent ID: %u\tTorret name: %s\n",torrent_id,s.c_str());
-        //printf("Prog: %f \n",prog);
+        Stat &current_stat = (*res)[i];
+        libtorrent::torrent_handle &current_handle = vec[i];
+        current_stat.name = current_handle.status().name;
+        current_stat.torrent_id = current_handle.id();
+        current_stat.progress = current_handle.status().progress;
+        current_stat.seeder_count = current_handle.status().num_seeds;
+        current_stat.download_speed = current_handle.status().download_rate;
+        current_stat.upload_speed = current_handle.status().upload_rate;
     }
     return res;
 }

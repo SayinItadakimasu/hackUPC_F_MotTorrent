@@ -16,13 +16,15 @@
 #include "libtorrent/torrent_info.hpp"
 #include "libtorrent/torrent_status.hpp"
 
-struct Stat {
+typedef struct {
     std::string name;
     boost::uint32_t torrent_id;
     float progress;
-    //speed
-    std::vector<std::string> seeders;
-};
+    int upload_speed;
+    int download_speed;
+    int seeder_count;
+} Stat;
+
 
 //Initializes session, returns true if success, false otherwise
 //TODO: resume previous session
@@ -37,7 +39,7 @@ bool add_torrent(char url[]);
 bool rm_torrent(boost::uint32_t id);
 
 
-std::vector<Stat> get_all_torrents();
+std::vector<Stat>* get_all_torrents();
 
 
 #endif //HACKUPC_FALL_2016_MOTTORRENT_OPERATIONS_H
