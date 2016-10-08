@@ -35,7 +35,7 @@ router.get('/testingSocket', function(req, res) {
 router.route('/add/torrent')
   //add a torrent via .torrent file
   .post(function (req, res) {
-    res.json({message: 'Adding Torrent - STUB METHOD'});
+    res.json({"message": "Adding Torrent - STUB METHOD"});
     var net = require('net');
     var client = new net.Socket();
   });
@@ -52,7 +52,7 @@ router.route('/add/magnet')
 
     client.on('data', function(data) {
       console.log('Received: '+data);
-      res.json({Received: data});
+      res.json({"Received": ""+data});
       client.destroy();
     });
 
@@ -71,7 +71,7 @@ router.route('/remove/:torrent_id')
     });
     client.on('data', function(data) {
       console.log('Received: '+data);
-      res.json({Received: data});
+      res.json({"Received": ""+data});
       client.destroy();
     });
 
@@ -103,7 +103,7 @@ app.use('/api/v1', router);
 
 router.route('/testingproxy')
     .get(function (req, res) {
-      res.json({Status: 'Proxy properly working'});
+      res.json({"Status": "Proxy properly working"});
     });
 app.listen(8080);
 console.log("localhost:8080");
