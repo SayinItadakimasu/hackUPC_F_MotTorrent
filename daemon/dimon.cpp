@@ -40,7 +40,7 @@ int main()
             {
                 Stat &current_stat = (*res)[i];
                 printf("Torrent ID: %u\n", current_stat.torrent_id);
-                printf("Name: %s\n", current_stat.name);
+                printf("Name: %s\n", current_stat.name.c_str());
                 printf("Prog: %f \n", current_stat.progress);
                 printf("Seed count: %d\n", current_stat.seeder_count);
                 printf("Upload speed: %d\n", current_stat.upload_speed);
