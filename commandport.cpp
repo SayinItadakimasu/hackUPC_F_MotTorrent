@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <malloc.h>
 #include <unistd.h>
-#include <boost/thread/thread.hpp>
+#include <pthread.h>
 
 void error(const char *msg)
 {
@@ -12,18 +12,37 @@ void error(const char *msg)
     exit(1);
 }
 
-typedef void (*command_handler_funcType)(char *bufferStart, size_t bufferSize);
+typedef struct {
+    char *bufferBegin; //this is the start of the buffer that holds the client's command
+    size_t bufferSize;
+} process_client_command_param;
 
-void command_handler(char *bufferStart, size_t bufferSize) //this function is responsible for free()ing bufferStart once it's done with it.
+void* process_client_command(void *p)
 {
 
 }
 
-void accept_connection(int socket, command_handler_funcType command_handler)
+typedef typeof(process_client_command) process_client_command_funcType;
+
+typedef struct {
+    int socket; //this is the socket that's bound & listening for connections
+    //process_client_command_funcType callback_function; //this is called after we've read all the data from the client. It is the function that will interpret and execute the request.
+} accept_connection_param;
+
+void* accept_connection(void *p)
 {
+    accept_connection_param ps = *(accept_connection_param*) p;                     // unpack the
+    int socket = ps.socket;                                                         // function
+    //process_client_command_funcType callback_function = ps.callback_function;       // parameters
+
     int connection_fd = accept(socket, NULL, NULL); //we use NULL because we don't care who is connecting to us
-    boost::thread listener_thread(&accept_connection, socket, command_handler); //after accepting and binding to a new connection, we launch a listener right away again
-    listener_thread.detach();
+
+    pthread_t new_listener_thread;
+    accept_connection_param acp;
+    acp.socket = socket;
+//    p.callback_function = process_client_command;
+    pthread_create(&new_listener_thread, NULL, accept_connection, &acp); //after accepting and binding to a new connection, we launch a listener right away again
+    pthread_detach(new_listener_thread);
 
     size_t recv_buffer_size = 1024;
     char *recv_buffer = (char*) malloc(recv_buffer_size);
@@ -35,11 +54,19 @@ void accept_connection(int socket, command_handler_funcType command_handler)
         total_bytes_read += partial_bytes_read;
     } while (partial_bytes_read != 0);
 
-    write(1,recv_buffer,total_bytes_read);
+    process_client_command_param pccp;
+    pccp.bufferBegin = recv_buffer;
+    pccp.bufferSize = total_bytes_read;
+    process_client_command(&pccp);
+
+    free(recv_buffer);
+
+    return NULL;
 }
 
+typedef typeof(accept_connection) accept_connection_funcType;
 
-void init_listener(command_handler_funcType command_handler) //this parameter is the callback that will be executed once we have received the data
+void init_listener() //this parameter is the callback that will be executed once the socket is bound and listening
 {
     /* Establishes a command listener in port 8492
      * Will listen for connections, accept them, then fork off a thread that reads the data into a command buffer
@@ -58,15 +85,19 @@ void init_listener(command_handler_funcType command_handler) //this parameter is
     if (listen(listen_socket,max_waiting_connections) < 0)
         error("Listen failed/"); //start accepting connections on the socket
 
-    boost::thread listener_thread(&accept_connection, listen_socket, command_handler);
-    listener_thread.detach();
+    accept_connection_param p;
+    p.socket = listen_socket;
+//    p.callback_function = process_client_command;
+    pthread_t new_listener_thread;
+    pthread_create(&new_listener_thread, NULL, accept_connection, &p);
+    pthread_detach(new_listener_thread);
 
 }
 
 
 int main(int argc, char *argv[])
 {
-    init_listener(NULL);
+    init_listener();
     while(1);
     return 0;
 }
