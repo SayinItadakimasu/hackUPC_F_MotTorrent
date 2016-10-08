@@ -1,0 +1,3 @@
+Get Status -> Can I haz Status
+Add Torrent -> Can I pozt torrent
+Delete Torrent -> Can I zrow torrent  
