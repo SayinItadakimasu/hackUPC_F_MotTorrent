@@ -8,7 +8,7 @@
 libtorrent::session *s;
 libtorrent::error_code ec;
 
-void init_session() {
+bool init_session() {
     printf( "Init session \n");
     libtorrent::settings_pack sett;
     sett.set_str(libtorrent::settings_pack::listen_interfaces, "0.0.0.0:6881");
@@ -16,12 +16,13 @@ void init_session() {
     if (ec)
     {
         fprintf(stderr, "failed to open listen socket: %s\n", ec.message().c_str());
+        return false;
     }
     printf( "Session complete! \n");
-    return;
+    return true;
 }
 
-void add_torrent(char url[]) {
+bool add_torrent(char url[]) {
     printf( "Making params... \n");
     libtorrent::add_torrent_params p;
     p.save_path = "./";
@@ -31,11 +32,13 @@ void add_torrent(char url[]) {
     if (ec)
     {
         fprintf(stderr, "%s\n", ec.message().c_str());
+        return false;
     }
     printf( "Torrent added! \n");
+    return true;
 }
 
-void rm_torrent(boost::uint32_t id) {
+bool rm_torrent(boost::uint32_t id) {
     std::vector<libtorrent::torrent_handle> vec = s->get_torrents();
     for (int i = 0; i < vec.size(); ++i) {
         if(vec[i].is_valid() && vec[i].id() == id) {
@@ -43,19 +46,24 @@ void rm_torrent(boost::uint32_t id) {
             if (ec)
             {
                 fprintf(stderr, "%s\n", ec.message().c_str());
+                return false;
             }
             printf( "Successful remove! \n");
+            return true;
         }
     }
 }
 
-void get_all_torrents() {
+std::vector<Stat> get_all_torrents() {
+    std::vector<Stat> res;
     std::vector<libtorrent::torrent_handle> vec = s->get_torrents();
     for (int i = 0; i < vec.size(); ++i) {
-        boost::uint32_t torrent_id = vec[i].id();
-        std::string s = vec[i].status().name;
-        float prog = vec[i].status().progress;
-        printf("Torrent ID: %u\tTorret name: %s\n",torrent_id,s.c_str());
-        printf("Prog: %f \n",prog);
+        res[i].name = vec[i].status().name;
+        res[i].torrent_id = vec[i].id();
+        res[i].progress = vec[i].status().progress;
+        std::copy(vec[i].url_seeds().begin(),vec[i].url_seeds().end(),std::back_inserter(res[i].seeders));
+        //printf("Torrent ID: %u\tTorret name: %s\n",torrent_id,s.c_str());
+        //printf("Prog: %f \n",prog);
     }
+    return res;
 }

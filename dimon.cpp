@@ -34,7 +34,17 @@ int main()
             add_torrent(url);
         }
         else if (strcmp(str,g) == 0){
-            get_all_torrents();
+            std::vector<stat> res = get_all_torrents();
+            for (int i = 0; i < res.size(); ++i) {
+                printf("Torrent ID: %u\n",res[i].torrent_id);
+                printf("Name: %s\n",res[i].name);
+                printf("Prog: %f \n",prog);
+                for (int j = 0; j < res[i].seeders.size(); ++j) {
+                    printf("Seed %d: %s \t",j,res[i].seeders[j]);
+                }
+                printf("\n");
+            }
+
         }
         else {
             printf( "input id: \n");
