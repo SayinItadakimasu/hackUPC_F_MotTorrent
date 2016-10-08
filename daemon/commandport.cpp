@@ -29,6 +29,7 @@ void* process_client_command(void *p)
 
     char message[] =  "This is the result of the operation";
     write(socket_fd, message, sizeof(message));
+    write(1, message, sizeof(message));
 
     close(socket_fd);
 }

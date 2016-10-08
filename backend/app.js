@@ -30,6 +30,7 @@ router.route('/add/magnet')   //add a torrent via magnet link
 
     client.on('data', function (data) {
       console.log('Received: ' + data);
+      res.send(data);
     });
 
     client.on('close', function () {
@@ -48,7 +49,8 @@ router.route('/status')
       client.write(data);
     });
     client.on('data', function (data) {
-      console.log('Received: ' + data);
+      console.log(data);
+      res.send(data);
     });
 
     client.on('close', function () {
