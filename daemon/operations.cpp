@@ -25,8 +25,6 @@ bool init_session() {
 bool kill_session() {
     printf( "Killing session \n");
     libtorrent::session_proxy proxy = s->abort();
-    ~s();
-    ~proxy();
     printf( "Kill successful! \n");
 }
 
