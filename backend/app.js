@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var net = require('net');
 // var request = require('request');
 // view engine setup
 // uncomment after placing your favicon in /public
@@ -14,65 +15,56 @@ var router = express.Router();
 
 router.route('/add/magnet')   //add a torrent via magnet link
   .post(function (req, res) {
-    var net = require('net');
     var client = new net.Socket();
     client.connect(8492, 'localhost', function(){
+        console.log("Will write " + 'ADD MAGNET \n' + JSON.stringify(req.body) + " to the socket");
       client.write('ADD MAGNET \n'+JSON.stringify(req.body));
     });
 
     client.on('data', function(data) {
       console.log('Received: '+data);
-      res.json({"Received": ""+data});
     });
 
     client.on('close', function() {
       console.log('magnet connection closed');
     });
   });
-
-router.route('/remove/:torrent_id')
-  .delete(function (req, res) {
-    //var id = req.params.torrent_id;
-    var net = require('net');
-    var client = new net.Socket();
-    client.connect(8492, 'localhost', function(){
-      client.end('DELETE TORRENT \n'+JSON.stringify(req.params.id));
-    });
-    client.on('data', function(data) {
-      console.log('Received: '+data);
-      res.json({"Received": ""+data});
-      client.destroy();
-    });
-
-    client.on('close', function() {
-      console.log('delete connection closed');
-    });
-  });
-
 router.route('/status')
     .get(function (req, res) {
-      var net = require('net');
       var client = new net.Socket();
       client.connect(8492, 'localhost', function(){
         console.log("conectado al socket");
-        client.end("GET STATUS\n");
+        client.write("GET STATUS\n");
       });
       client.on('data', function(data) {
         console.log('Received: '+data);
-        //Montar el json
-        res.json({"Status": ""+data});
-        client.destroy();
       });
 
       client.on('close', function() {
         console.log('status connection closed');
       });
     });
+
+
+router.route('/remove/:torrent_id')
+    .delete(function (req, res) {
+        //var id = req.params.torrent_id;
+        var client = new net.Socket();
+        client.connect(8492, 'localhost', function(){
+            client.end('DELETE TORRENT \n'+JSON.stringify(req.params.id));
+        });
+        client.on('data', function(data) {
+            console.log('Received: '+data);
+            res.json({"Received": ""+data});
+            client.destroy();
+        });
+
+        client.on('close', function() {
+            console.log('delete connection closed');
+        });
+    });
+
 app.use('/api/v1', router);
 
-router.route('/testingproxy')
-    .get(function (req, res) {
-      res.json({"Status": "Proxy properly working"});
-    });
 app.listen(8080);
-console.log("localhost:8080");
+console.log("listening on localhost:8080 for http");
