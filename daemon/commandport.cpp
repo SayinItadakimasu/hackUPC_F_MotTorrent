@@ -37,37 +37,36 @@ typedef typeof(process_client_command) process_client_command_funcType;
 
 typedef struct {
     int socket; //this is the socket that's bound & listening for connections
-    //process_client_command_funcType callback_function; //this is called after we've read all the data from the client. It is the function that will interpret and execute the request.
 } accept_connection_param;
 
 void* accept_connection(void *p)
 {
     accept_connection_param ps = *(accept_connection_param*) p;                     // unpack the
-    int socket = ps.socket;                                                         // function
-    //process_client_command_funcType callback_function = ps.callback_function;       // parameters
+    int socket = ps.socket;                                                         // function parameters
 
     int connection_fd = accept(socket, NULL, NULL); //we use NULL because we don't care who is connecting to us
 
     pthread_t new_listener_thread;
     accept_connection_param acp;
     acp.socket = socket;
-//    p.callback_function = process_client_command;
+
     pthread_create(&new_listener_thread, NULL, accept_connection, &acp); //after accepting and binding to a new connection, we launch a listener right away again
     pthread_detach(new_listener_thread);
 
     size_t recv_buffer_size = 1024;
     char *recv_buffer = (char*) malloc(recv_buffer_size);
-    unsigned int total_bytes_read = 0;
-    ssize_t partial_bytes_read;
-    do
-    {
-        partial_bytes_read = read(connection_fd,recv_buffer+total_bytes_read,recv_buffer_size-total_bytes_read);
-        total_bytes_read += partial_bytes_read;
-    } while (partial_bytes_read != 0);
+
+    char msglentext[10];
+
+    read(connection_fd, msglentext, 10); //the 1st 10 bytes of the connection represent the number of bytes that follow (in ascii)
+
+    size_t msglen = atoi(msglentext);
+
+    read(connection_fd,recv_buffer,msglen); //read exactly the number of bytes we've been told we're about to receive
 
     process_client_command_param pccp;
     pccp.bufferBegin = recv_buffer;
-    pccp.bufferSize = total_bytes_read;
+    pccp.bufferSize = msglen;
     pccp.socket_fd = connection_fd;
     process_client_command(&pccp);
 
