@@ -46,7 +46,9 @@ router.route('/status')
       var length = zpad(Buffer.byteLength(data, 'utf8'), 10);
 
       client.write(length);
+      console.log(length);
       client.write(data);
+      console.log(data);
     });
     client.on('data', function (data) {
       console.log('Received: ' + data);
