@@ -6,7 +6,6 @@
 #include <thread>
 #include <json.hpp> //from
 
-
 static const int PADLENGTH = 10;
 
 void error(const char* msg) {
@@ -14,13 +13,38 @@ void error(const char* msg) {
     exit(1);
 }
 
+/* Commands accepted
+ * allStatus
+ * addMagnet
+ *
+ * The command format is: 'commandName', followed by '\n', followed by 'bodyPayload' until the end of the message.
+ */
+
 void process_client_command(const char* bufferBegin, size_t bufferSize, int socket_fd) {
+    char* message;
+
     write(1, bufferBegin, bufferSize); //DEBUG write
 
+    size_t commandLength = strcspn(bufferBegin, "\n");
 
-    char message[] = "This is the result of the operation\n";
+    if (!memcmp(bufferBegin, "getStatus", commandLength))
+    {
+        //return status of all torrents
+    }
+    else if (!memcmp(bufferBegin, "addMagnet", commandLength))
+    {
+        //add a magnet link (found in the body)
+    }
+    else
+    {
+        //invalid/unrecognized question.
+
+    }
+
     write(socket_fd, message, sizeof(message));
     write(1, message, sizeof(message));
+
+    free(message); //RESPONSIBLE deallocates here
 
     close(socket_fd);
 }
