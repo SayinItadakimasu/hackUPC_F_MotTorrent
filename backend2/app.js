@@ -1,8 +1,10 @@
 var express = require('express');
-var app = express();
 var net = require('net');
 var zpad = require('zpad');
-var PADLENGTH = 10; //The message format sends a PADLEGTH-long ASCII header with the number of octets to follow
+var PADLENGTH = 10; //The message format sends a PADLENGTH-long ASCII header with the number of octets to follow
+
+var app = express();
+app.disable('etag'); //we don't want the app to include an ETAG header, it will cause any proxying server
 
 function sendBuffer(data, socket)
 {
@@ -17,15 +19,15 @@ app.get('/api/allStatus', function(req, res) {
         sendBuffer('Please get allStatus\n', client);
     });
 
-    var recvBuffer = new Buffer(0);
+    var recvBuffer = new Buffer(0); //we buffer all the response from the daemon before acting on it
 
     client.on('data', function(receivedData) {
         recvBuffer = Buffer.concat([recvBuffer, receivedData]);
     });
 
     client.on('end', function() {
+        res.type('json'); //we expect the dameon to return a JSON string with our data, so we just passthrough
         res.send(recvBuffer);
-        res.end();
     })
 
 });

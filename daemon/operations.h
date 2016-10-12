@@ -47,13 +47,13 @@ void resume_all();
 
 //Adds torrent to current session, returns true if success, false otherwise
 //TODO: doesn't check repeated ones
-bool add_torrent(char url[]);
+bool add_torrent(char magnet_URL[]);
 
 //Removes a torrent from current session, returns true if success, false otherwise
 //It removes all trace of the torrent.
 bool rm_torrent(boost::uint32_t id);
 
-
+//Returns statistics for all torrents
 std::vector<Stat>* get_all_torrents();
 
 

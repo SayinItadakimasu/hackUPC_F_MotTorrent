@@ -70,11 +70,11 @@ void resume_all() {
     printf( "All torrents resumed! \n");
 }
 
-bool add_torrent(char url[]) {
+bool add_torrent(char magnet_URL[]) {
     printf( "Making params... \n");
     libtorrent::add_torrent_params p;
     p.save_path = "./";
-    p.url = url;
+    p.url = magnet_URL;
     printf( "Adding torrent... \n");
     s->add_torrent(p,ec);
     if (ec)

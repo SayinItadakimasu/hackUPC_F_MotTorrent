@@ -10,6 +10,7 @@
 #include "libtorrent/session.hpp"
 #include "libtorrent/torrent_info.hpp"
 #include "operations.h"
+#include "c
 
 using namespace libtorrent;
 namespace lt = libtorrent;
@@ -22,8 +23,13 @@ char r[]="resume";
 char ra[]="rall";
 char q[]="quit";
 
+int main_for_production(int argc, char* argv[])
+{
+    init_session();
 
-int main()
+}
+
+int main_for_interactive_testing(int argc, char* argv[])
 {
     init_session();
     char str[100];

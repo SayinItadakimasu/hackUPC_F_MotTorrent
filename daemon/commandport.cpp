@@ -4,6 +4,7 @@
 #include <malloc.h>
 #include <unistd.h>
 #include <thread>
+#include <json.hpp>
 
 static const int PADLENGTH = 10;
 
@@ -49,7 +50,7 @@ void init_listener() //this parameter is the callback that will be executed once
     /* Establishes a command listener in port 8492
      * Will listen for connections, accept them, then fork off a thread that reads the data into a command buffer
      */
-    //TODO consider SO_REUSEPORT (man 7 socket) as the solution to the "thundering herd" problem?
+    //TODO consider SO_REUSEPORT (man 7 socket) as the solution to the "thundering-herd" problem?
     in_port_t listen_port = 8492;
     int max_waiting_connections = 5;
     struct sockaddr_in serv_addr;
