@@ -4,21 +4,21 @@
 #include <malloc.h>
 #include <unistd.h>
 #include <thread>
-#include <json.hpp>
+#include <json.hpp> //from
+
 
 static const int PADLENGTH = 10;
 
-void error(const char *msg)
-{
+void error(const char* msg) {
     perror(msg);
     exit(1);
 }
 
-void process_client_command(char *bufferBegin, size_t bufferSize, int socket_fd)
-{
-    write(1, bufferBegin, bufferSize);
+void process_client_command(const char* bufferBegin, size_t bufferSize, int socket_fd) {
+    write(1, bufferBegin, bufferSize); //DEBUG write
 
-    char message[] =  "This is the result of the operation\n";
+
+    char message[] = "This is the result of the operation\n";
     write(socket_fd, message, sizeof(message));
     write(1, message, sizeof(message));
 
@@ -26,21 +26,23 @@ void process_client_command(char *bufferBegin, size_t bufferSize, int socket_fd)
 }
 
 
-void accept_connection(int socket)
-{
+void accept_connection(int socket) {
     int connection_fd = accept(socket, NULL, NULL); //we use NULL because we don't care who is connecting to us
 
     std::thread(accept_connection, socket).detach();
 
     size_t recv_buffer_size = 1024;
-    char *recv_buffer = (char*) malloc(recv_buffer_size); //RESPONSIBLE for deallocating
+    char* recv_buffer = (char*) malloc(recv_buffer_size); //RESPONSIBLE for deallocating
     char msglentext[10];
 
-    read(connection_fd, msglentext, PADLENGTH); //the 1st PADLENGTH bytes of the connection represent (in ascii) the number of bytes that follow
+    read(connection_fd, msglentext,
+         PADLENGTH); //the 1st PADLENGTH bytes of the connection represent (in ascii) the number of bytes that follow
     size_t msglen = atoi(msglentext); //consider safety-checking this to be an actual number (using strtol or some such)
-    while (msglen > 0) msglen -= read(connection_fd,recv_buffer,msglen); //read exactly the number of bytes we've been told we're about to receive
+    while (msglen > 0)
+        msglen -= read(connection_fd, recv_buffer,
+                       msglen); //read exactly the number of bytes we've been told we're about to receive
     //TODO handle the case that we reach TCP EOF (read returns 0) before we read the advertised number of bytes - the above instruction would hang forever then.
-    process_client_command(recv_buffer,msglen, connection_fd);
+    process_client_command(recv_buffer, msglen, connection_fd);
 
     free(recv_buffer); //RESPONSIBLE deallocates here
 }
@@ -54,23 +56,23 @@ void init_listener() //this parameter is the callback that will be executed once
     in_port_t listen_port = 8492;
     int max_waiting_connections = 5;
     struct sockaddr_in serv_addr;
-    int listen_socket = socket(AF_INET,SOCK_STREAM,0); //TODO use SO_REUSEADDR (man 2 setsockopt, man 7 socket) to prevent the TIME_WAIT annoyance
+    int listen_socket = socket(AF_INET, SOCK_STREAM,
+                               0); //TODO use SO_REUSEADDR (man 2 setsockopt, man 7 socket) to prevent the TIME_WAIT annoyance
     if (listen_socket < 0)
         error("Socket syscall failed/");
     serv_addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(listen_port);
-    if (bind(listen_socket, (struct sockaddr*) &serv_addr, sizeof(serv_addr) ) < 0)
+    if (bind(listen_socket, (struct sockaddr*) &serv_addr, sizeof(serv_addr)) < 0)
         error("Bind failed/");
-    if (listen(listen_socket,max_waiting_connections) < 0)
+    if (listen(listen_socket, max_waiting_connections) < 0)
         error("Listen failed/"); //start accepting connections on the socket
 
-    std::thread(accept_connection,listen_socket).detach(); //launch AND detach a listener
+    std::thread(accept_connection, listen_socket).detach(); //launch AND detach a listener
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     init_listener();
     pthread_exit(NULL); //This statement here because the main thread doesn't need to hang around
 }
